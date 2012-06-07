@@ -1,0 +1,12 @@
+Puppet playground
+
+Simple test setup of an puppet master and agent to test modules in a virtual environment.
+
+Requirements:
+- ruby
+- virtualbox
+- vagrant
+
+Run:
+- vagrant up
+- vagrant ssh puppetagent
