@@ -1,5 +1,4 @@
 class redis-server {
-
   define announce_installation($service_name = $title) {
     notify { "you just installed and started ${service_name}": }
   }
