@@ -10,7 +10,7 @@ class redis-server {
   file { 'redis.conf':
     ensure => present,
     path => "/etc/redis/redis.conf",
-    source => "puppet:///modules/redis-server/redis.conf",
+    content => template("redis-server/redis.conf.erb"),
     require => Package["redis-server"],
     notify => Exec["redis-server-restart"]
   }
