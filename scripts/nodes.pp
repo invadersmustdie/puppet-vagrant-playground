@@ -1,5 +1,5 @@
 node "base-system" {
-  include central-sudoers
+  include base-sudoers
 }
 
 node "puppet-agent.local" inherits "base-system" {
