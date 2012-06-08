@@ -1,4 +1,5 @@
 node "base-system" {
+  include base-hosts
   include base-sudoers
 }
 

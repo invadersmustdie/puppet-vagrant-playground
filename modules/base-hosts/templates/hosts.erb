@@ -1,0 +1,21 @@
+# Deployed at: <%= Time.now %>
+
+127.0.0.1   localhost
+127.0.1.1   <%= fqdn %> <%= hostname %>
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+<% hosts_map = {
+    "puppet-master.local" => "192.168.2.10",
+    "puppet-agent.local" => "192.168.2.11"
+  }
+-%>
+# generated content follows
+<% hosts_map.each do |hostname, ip| -%>
+<%= "#{hostname} #{ip}" %>
+<% end %>
