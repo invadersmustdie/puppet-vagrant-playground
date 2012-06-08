@@ -8,23 +8,19 @@ class redis-server {
     ensure => installed
   }
 
-  file { 'redis-extra-conf':
+  file { 'redis.conf':
     ensure => present,
-    path => "/etc/redis/redis-extra.conf",
+    path => "/etc/redis/redis.conf",
+    source => "puppet:///modules/redis-server/redis.conf",
     require => Package["redis-server"],
-    source => "puppet:///modules/redis-server/redis-extra.conf"
-  }
-
-  file { 'redis-template': 
-    ensure => present,
-    path => "/etc/redis/redis.template",
-    require => Package["redis-server"],
-    content => template("redis-server/redis.template.erb")
+    notify => Service["redis-server"]
   }
 
   service { 'redis-server':
     ensure => running,
-    enable => true
+    enable => true,
+    hasrestart => true,
+    require => File["/etc/init.d/redis-server"]
   }
 
   announce_installation { 'redis-server':
