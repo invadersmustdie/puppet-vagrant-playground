@@ -10,6 +10,8 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
+# base-hosts/lib/facter/my_hostname.rb -> <%= my_hostname %>
+
 <% hosts_map = {
     "puppet-master.local" => "192.168.2.10",
     "puppet-agent.local" => "192.168.2.11"
